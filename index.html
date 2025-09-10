@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uralt Healthcare - Your Path of Wellness</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-blue: #0076a3;
+            --secondary-blue: #005a7d;
+            --primary-green: #4caf50;
+            --secondary-green: #388e3c;
+            --light-bg: #f8f9fa;
+            --dark-text: #333;
+            --light-text: #fff;
+            --gray-text: #666;
+            --border-radius: 4px;
+            --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--secondary-blue);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-blue);
+            color: var(--light-text);
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-blue);
+            color: var(--light-text);
+        }
+
+        .btn-green {
+            background-color: var(--primary-green);
+        }
+
+        .btn-green:hover {
+            background-color: var(--secondary-green);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-blue);
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-green);
+        }
+
+        .section-title p {
+            color: var(--gray-text);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 0.9rem;
+            color: var(--gray-text);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: var(--dark-text);
+            font-weight: 500;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-blue);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
+        nav ul li a.active {
+            color: var(--primary-blue);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-blue);
+        }
+
+        /* Page Content Styles */
+        .page-content {
+            padding: 80px 0;
+            flex: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 118, 163, 0.8), rgba(0, 90, 125, 0.8)), url('https://placehold.co/1200x600/0076a3/white?text=Uralt+Healthcare') no-repeat center center/cover;
+            color: var(--light-text);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            background-color: var(--light-bg);
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary-blue);
+            color: var(--light-text);
+            border-color: var(--primary-blue);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+            color: var(--primary-blue);
+        }
+
+        .product-info p {
+            color: var(--gray-text);
+            margin-bottom: 15px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-img {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text h2 {
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+        }
+
+        /* Management Section */
+        .management {
+            padding: 80px 0;
+        }
+
+        .management-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .manager-card {
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+
+        .manager-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .manager-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .manager-info {
+            padding: 20px;
+        }
+
+        .manager-info h3 {
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+
+        .manager-info p {
+            color: var(--gray-text);
+            margin-bottom: 15px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info h3 {
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-details p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-details i {
+            margin-right: 10px;
+            color: var(--primary-blue);
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            border-radius: var(--border-radius);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-blue);
+            color: var(--light-text);
+            padding: 60px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-green);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--light-text);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-img {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+                justify-content: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            .hero-content h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Page Styles */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 40px auto;
+            max-width: 800px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            animation: modalFadeIn 0.3s;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            color: var(--primary-blue);
+            margin: 0;
+        }
+
+        .close-modal {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray-text);
+            background: none;
+            border: none;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .modal-product {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .modal-product-img {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .modal-product-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .modal-product-info h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .modal-product-info p {
+            margin-bottom: 15px;
+            color: var(--gray-text);
+        }
+
+        .product-specs {
+            margin-top: 20px;
+        }
+
+        .product-specs h4 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .product-specs ul {
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+
+        .product-specs ul li {
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .product-specs ul li:before {
+            content: '•';
+            color: var(--primary-green);
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .modal-product {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://placehold.co/50x50/0076a3/white?text=U" alt="Uralt Logo">
+                <div class="logo-text">
+                    <h1>Uralt Healthcare</h1>
+                    <span>Your path of wellness</span>
+                </div>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+                    <li><a href="#" class="nav-link" data-page="products">Products</a></li>
+                    <li><a href="#" class="nav-link" data-page="management">Management</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h2>Innovative Healthcare Solutions</h2>
+                <p>Committed to improving lives through high-quality pharmaceutical products and healthcare solutions.</p>
+                <a href="#" class="btn btn-green nav-link" data-page="products">Explore Our Products</a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Why Choose Uralt</h2>
+                    <p>We are committed to excellence in healthcare through innovation, quality, and reliability</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-certificate"></i>
+                        <h3>ISO Certified</h3>
+                        <p>Our quality management system is certified to ISO 9001:2015 standards</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-flask"></i>
+                        <h3>Research & Innovation</h3>
+                        <p>Continuous research to develop innovative healthcare solutions</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-globe"></i>
+                        <h3>Global Standards</h3>
+                        <p>Products manufactured following international quality standards</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Featured Products</h2>
+                    <p>Discover our range of high-quality pharmaceutical products</p>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card" data-specialties="gastroenterologist,general physician,general surgeon" data-product="uradom-e">
+                        <div class="product-img">
+                            <img src="assets/images/Cap-Uradom-E.jpg" alt="Uradom E">
+                        </div>
+                        <div class="product-info">
+                            <h3>Uradom E</h3>
+                            <p>Esomeprazole and Domperidone combination for acid-related disorders</p>
+                            <a href="#" class="btn view-product" data-product="uradom-e">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="product-card" data-specialties="gynecologist,ivf" data-product="profe">
+                        <div class="product-img">
+                            <img src="assets/images/Cap-Profe.jpg" alt="Profe">
+                        </div>
+                        <div class="product-info">
+                            <h3>Profe</h3>
+                            <p>Lactobacillus acidophilus 0.5 billion CFU + Lactobacillus plantarum 0.5 billion CFU</p>
+                            <a href="#" class="btn view-product" data-product="profe">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="product-card" data-specialties="orthopaedic,gastroenterologist,general physician" data-product="urodom-p">
+                        <div class="product-img">
+                            <img src="assets/images/Cap-Urodom-P.jpg" alt="Urodom P">
+                        </div>
+                        <div class="product-info">
+                            <h3>Urodom P</h3>
+                            <p>Pantoprazole 40 mg and Domperidone 30 mg Capsules</p>
+                            <a href="#" class="btn view-product" data-product="urodom-p">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="#" class="btn btn-green nav-link" data-page="products">View All Products</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>About Uralt Healthcare</h2>
+                        <p>URALT HEALTHCARE PRIVATE LIMITED is an Indian Private Limited Company incorporated on 09-Mar-2024. We operate in the wholesale trade sector (excluding motor vehicles and motorcycles).</p>
+                        <p>Our authorized and paid-up capital is ₹1.00 Lakh, and we are headquartered in Jaipur, India.</p>
+                        <p>We are committed to providing high-quality pharmaceutical products that meet global standards while ensuring accessibility and affordability for all.</p>
+                        <a href="#" class="btn nav-link" data-page="about">Learn More About Us</a>
+                    </div>
+                    <div class="about-img">
+                        <img src="https://placehold.co/600x400/0076a3/white?text=Uralt+Healthcare" alt="Uralt Healthcare">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <div class="container page-content">
+            <div class="section-title">
+                <h2>About Uralt Healthcare</h2>
+                <p>Learn more about our company, mission, and values</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>URALT HEALTHCARE PRIVATE LIMITED is an Indian Private Limited Company incorporated on 09-Mar-2024. We operate in the wholesale trade sector (excluding motor vehicles and motorcycles).</p>
+                    <p>Our authorized and paid-up capital is ₹1.00 Lakh, and we are headquartered in Jaipur, India.</p>
+                    <p>We are committed to providing high-quality pharmaceutical products that meet global standards while ensuring accessibility and affordability for all.</p>
+                    
+                    <h2>Our Mission</h2>
+                    <p>To improve lives through innovative and high-quality healthcare solutions that are accessible to all.</p>
+                    
+                    <h2>Our Values</h2>
+                    <ul>
+                        <li>Quality: We never compromise on the quality of our products</li>
+                        <li>Innovation: We continuously research and develop new solutions</li>
+                        <li>Integrity: We conduct our business with honesty and transparency</li>
+                        <li>Accessibility: We strive to make healthcare affordable for everyone</li>
+                    </ul>
+                </div>
+                <div class="about-img">
+                    <img src="https://placehold.co/600x400/0076a3/white?text=Uralt+Team" alt="Uralt Team">
+                </div>
+            </div>
+
+            <div class="features" style="background-color: transparent; padding: 40px 0;">
+                <div class="section-title">
+                    <h2>Our Certifications</h2>
+                    <p>We are proud to maintain the highest standards in quality and safety</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-award"></i>
+                        <h3>ISO 9001:2015 Certified</h3>
+                        <p>Our quality management system is certified to international standards</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>GMP Compliant</h3>
+                        <p>We follow Good Manufacturing Practices in all our processes</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Quality Assurance</h3>
+                        <p>Rigorous quality checks ensure the safety of all our products</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products Page -->
+    <div id="products" class="page">
+        <div class="container page-content">
+            <div class="section-title">
+                <h2>Our Products</h2>
+                <p>Discover our range of high-quality pharmaceutical products</p>
+            </div>
+
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <h3>Filter by Specialty</h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Products</button>
+                    <button class="filter-btn" data-filter="gynecologist">Gynecologist</button>
+                    <button class="filter-btn" data-filter="orthopaedic">Orthopaedic</button>
+                    <button class="filter-btn" data-filter="gastroenterologist">Gastroenterologist</button>
+                    <button class="filter-btn" data-filter="general physician">General Physician</button>
+                    <button class="filter-btn" data-filter="general surgeon">General Surgeon</button>
+                    <button class="filter-btn" data-filter="ivf">IVF</button>
+                    <button class="filter-btn" data-filter="rheumatologist">Rheumatologist</button>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid">
+                <div class="product-card" data-specialties="gastroenterologist,general physician,general surgeon" data-product="uradom-e">
+                    <div class="product-img">
+                        <img src="assets/images/Cap-Uradom-E.jpg" alt="Uradom E">
+                    </div>
+                    <div class="product-info">
+                        <h3>Uradom E</h3>
+                        <p>Esomeprazole Magnesium Trihydrate 40 mg + Domperidone 30 mg</p>
+                        <a href="#" class="btn view-product" data-product="uradom-e">Learn More</a>
+                    </div>
+                </div>
+                <div class="product-card" data-specialties="gynecologist,ivf" data-product="profe">
+                    <div class="product-img">
+                        <img src="assets/images/Cap-Profe.jpg" alt="Profe">
+                    </div>
+                    <div class="product-info">
+                        <h3>Profe</h3>
+                        <p>Lactobacillus acidophilus 0.5 billion CFU + Lactobacillus plantarum 0.5 billion CFU</p>
+                        <a href="#" class="btn view-product" data-product="profe">Learn More</a>
+                    </div>
+                </div>
+                <div class="product-card" data-specialties="orthopaedic,gastroenterologist,general physician" data-product="urodom-p">
+                    <div class="product-img">
+                        <img src="assets/images/Cap-Urodom-P.jpg" alt="Urodom P">
+                    </div>
+                    <div class="product-info">
+                        <h3>Urodom P</h3>
+                        <p>Pantoprazole 40 mg and Domperidone 30 mg Capsules</p>
+                        <a href="#" class="btn view-product" data-product="urodom-p">Learn More</a>
+                    </div>
+                </div>
+                <div class="product-card" data-specialties="gynecologist,ivf" data-product="prebirth">
+                    <div class="product-img">
+                        <img src="assets/images/Tab-Prebirth-SR-200.jpg" alt="Prebirth SR 200">
+                    </div>
+                    <div class="product-info">
+                        <h3>Prebirth SR 200</h3>
+                        <p>Natural Micronised Progesterone Sustained Release Tablets 200 mg</p>
+                        <a href="#" class="btn view-product" data-product="prebirth">Learn More</a>
+                    </div>
+                </div>
+                <div class="product-card" data-specialties="orthopaedic,rheumatologist,general physician" data-product="ecot-mr">
+                    <div class="product-img">
+                        <img src="assets/images/Tab-Ecot-MR.jpg" alt="Ecot-MR">
+                    </div>
+                    <div class="product-info">
+                        <h3>Ecot-MR</h3>
+                        <p>Etoricoxib 60 mg + Thiocolchicoside 4 mg Tablets</p>
+                        <a href="#" class="btn view-product" data-product="ecot-mr">Learn More</a>
+                    </div>
+                </div>
+                <div class="product-card" data-specialties="gynecologist,orthopaedic,general physician,general surgeon,rheumatologist" data-product="uracal-forte">
+                    <div class="product-img">
+                        <img src="assets/images/Cap-Uracel-Forte.jpg" alt="Uracal Forte">
+                    </div>
+                    <div class="product-info">
+                        <h3>Uracal Forte</h3>
+                        <p>Complete bone health supplement with multiple vitamins and minerals</p>
+                        <a href="#" class="btn view-product" data-product="uracal-forte">Learn More</a>
+                    </div>
+                </div>
+                <div class="product-card" data-specialties="orthopaedic,gastroenterologist,general physician,rheumatologist" data-product="tnib-jak">
+                    <div class="product-img">
+                        <img src="assets/images/Tab-Tnib-Jak.jpg" alt="Tnib-Jak">
+                    </div>
+                    <div class="product-info">
+                        <h3>Tnib-Jak</h3>
+                        <p>Tofacitinib Citrate 5 mg Tablets</p>
+                        <a href="#" class="btn view-product" data-product="tnib-jak">Learn More</a>
+                    </div>
+                </div>
+                <div class="product-card" data-specialties="gynecologist,orthopaedic,general physician,general surgeon,rheumatologist" data-product="tyga-60k">
+                    <div class="product-img">
+                        <img src="assets/images/Shot-Tyga-60K.jpg" alt="Tyga 60K">
+                    </div>
+                    <div class="product-info">
+                        <h3>Tyga 60K</h3>
+                        <p>Cholecalciferol 60000 IU Oral Solution (Nano Shot)</p>
+                        <a href="#" class="btn view-product" data-product="tyga-60k">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Management Page -->
+    <div id="management" class="page">
+        <div class="container page-content">
+            <div class="section-title">
+                <h2>Our Management</h2>
+                <p>Meet the leadership team behind Uralt Healthcare</p>
+            </div>
+
+            <div class="management-grid">
+                <div class="manager-card">
+                    <div class="manager-img">
+                        <img src="https://placehold.co/400x500/0076a3/white?text=Pawan+Kumar+Sharma" alt="Pawan Kumar Sharma">
+                    </div>
+                    <div class="manager-info">
+                        <h3>Pawan Kumar Sharma</h3>
+                        <p>Director</p>
+                        <p>Experienced pharmaceutical professional with over 15 years in the industry.</p>
+                    </div>
+                </div>
+                <div class="manager-card">
+                    <div class="manager-img">
+                        <img src="https://placehold.co/400x500/4caf50/white?text=Amit+Kumar+Basir" alt="Amit Kumar Basir">
+                    </div>
+                    <div class="manager-info">
+                        <h3>Amit Kumar Basir</h3>
+                        <p>Director</p>
+                        <p>Expert in business development and strategic planning in healthcare sector.</p>
+                    </div>
+                </div>
+                <div class="manager-card">
+                    <div class="manager-img">
+                        <img src="https://placehold.co/400x500/0076a3/white?text=Ashvini+Kumar+Mudgal" alt="Ashvini Kumar Mudgal">
+                    </div>
+                    <div class="manager-info">
+                        <h3>Ashvini Kumar Mudgal</h3>
+                        <p>Director</p>
+                        <p>Specialized in operations and supply chain management with focus on quality assurance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-content" style="margin-top: 60px;">
+                <div class="about-text">
+                    <h2>Our Leadership Philosophy</h2>
+                    <p>At Uralt Healthcare, we believe that strong leadership is the foundation of our success. Our management team brings together diverse expertise from various facets of the pharmaceutical industry.</p>
+                    <p>We are committed to:</p>
+                    <ul>
+                        <li>Fostering innovation and research in healthcare</li>
+                        <li>Maintaining the highest standards of quality and safety</li>
+                        <li>Building lasting relationships with healthcare professionals</li>
+                        <li>Creating value for our customers and stakeholders</li>
+                    </ul>
+                </div>
+                <div class="about-img">
+                    <img src="https://placehold.co/600x400/4caf50/white?text=Leadership+Team" alt="Leadership Team">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <div class="container page-content">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with us for any inquiries or support</p>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-details">
+                        <p><i class="fas fa-map-marker-alt"></i> Shop No. 01, Kh No. 1350 Gandhi Basti, Jhotwara, Bindayaka, Jaipur, Rajasthan 302012, India</p>
+                        <p><i class="fas fa-phone"></i> +91 XXXXX XXXXX</p>
+                        <p><i class="fas fa-envelope"></i> info@uralthealthcare.com</p>
+                        <p><i class="fas fa-clock"></i> Monday to Friday: 9:00 AM - 6:00 PM</p>
+                    </div>
+
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.367318294536!2d75.8273143753377!3d26.92331987671674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db6c100000001%3A0x6a25a5c5f3a17f8!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1726423567890!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                        <input type="email" id="email" placeholder="Your Email" required>
+                        <input type="tel" id="phone" placeholder="Your Phone">
+                        <textarea id="message" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Uralt Healthcare</h3>
+                    <p>Your path of wellness. Committed to improving lives through innovative and high-quality pharmaceutical products.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="home">Home</a></li>
+                        <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+                        <li><a href="#" class="nav-link" data-page="products">Products</a></li>
+                        <li><a href="#" class="nav-link" data-page="management">Management</a></li>
+                        <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Shop No. 01, Kh No. 1350 Gandhi Basti, Jhotwara, Bindayaka, Jaipur, Rajasthan 302012, India</li>
+                        <li><i class="fas fa-phone"></i> +91 XXXXX XXXXX</li>
+                        <li><i class="fas fa-envelope"></i> info@uralthealthcare.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Uralt Healthcare Private Limited. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Detail Modals -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-product-name">Product Name</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-product-content">
+                <!-- Product content will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('nav').classList.toggle('active');
+        });
+
+        // Page navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetPage = this.getAttribute('data-page');
+                
+                // Hide all pages
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // Show target page
+                document.getElementById(targetPage).classList.add('active');
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(navLink => {
+                    navLink.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+                
+                // Close mobile menu if open
+                document.getElementById('nav').classList.remove('active');
+            });
+        });
+
+        // Simple form validation for contact page
+        if (document.getElementById('contactForm')) {
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                let name = document.getElementById('name').value;
+                let email = document.getElementById('email').value;
+                let message = document.getElementById('message').value;
+                
+                if (name && email && message) {
+                    alert('Thank you for your message. We will get back to you soon!');
+                    this.reset();
+                } else {
+                    alert('Please fill all required fields');
+                }
+            });
+        }
+
+        // Product filtering functionality
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                
+                // Show all products if filter is 'all'
+                if (filter === 'all') {
+                    document.querySelectorAll('.product-card').forEach(card => {
+                        card.style.display = 'block';
+                    });
+                } else {
+                    // Hide all products first
+                    document.querySelectorAll('.product-card').forEach(card => {
+                        card.style.display = 'none';
+                    });
+                    
+                    // Show products that match the filter
+                    document.querySelectorAll(`.product-card[data-specialties*="${filter}"]`).forEach(card => {
+                        card.style.display = 'block';
+                    });
+                }
+            });
+        });
+
+        // Product detail modals
+        const productData = {
+            'uradom-e': {
+                name: 'Uradom E',
+                image: 'assets/images/Cap-Uradom-E.jpg',
+                description: 'Esomeprazole Magnesium Trihydrate 40 mg + Domperidone 30 mg',
+                composition: 'Esomeprazole Magnesium Trihydrate 40 mg, Domperidone 30 mg',
+                indications: 'Peptic Ulcer, Ulcer, Nausea and Vomiting, Irritable bowel Syndrome',
+                benefits: [
+                    'Early response in erosive esophagitis compared to omeprazole',
+                    'Early response in chronic heart burn',
+                    'Well tolerated',
+                    'Significantly greater control of moderate to severe GERD',
+                    'Improves motility & gastric emptying rate',
+                    'Restores peristalsis to control gastric reflux',
+                    'Prevents nausea and vomiting'
+                ],
+                dosage: 'As prescribed by the physician'
+            },
+            'profe': {
+                name: 'Profe',
+                image: 'assets/images/Cap-Profe.jpg',
+                description: 'Lactobacillus acidophilus 0.5 billion CFU + Lactobacillus plantarum 0.5 billion CFU + Lactobacillus gasseri 0.5 billion CFU + Lactobacillus fermentum 0.5 billion CFU',
+                composition: 'Lactobacillus acidophilus, Lactobacillus plantarum, Lactobacillus gasseri, Lactobacillus fermentum',
+                indications: 'Vaginal Infections, Prophylactic During Pregnancy',
+                benefits: [
+                    'Restores & Maintains Vaginal Flora',
+                    'Colonizes in vagina through translocation from rectum',
+                    'Produces Lactic acid, H₂O₂, Bacteriocins that kill pathogens',
+                    'Normalizes vaginal pH & prevents recurrence',
+                    'Reduces vaginal itching, abnormal discharge & abnormal odour',
+                    'Safe During Pregnancy - Reduces chances of Pre-term birth',
+                    'Evaluated in > 1400 Indian Women with 64% reduction in vaginal itching at Day 10',
+                    '50% reduction in vaginal discharge at Day 10'
+                ],
+                dosage: 'Vaginal Infection: 1 Cap BID for minimum 1 month. Pregnancy: 1 Cap OD for 10 days each month till delivery.'
+            },
+            'urodom-p': {
+                name: 'Urodom P',
+                image: 'assets/images/Cap-Urodom-P.jpg',
+                description: 'Pantoprazole 40 mg and Domperidone 30 mg Capsules',
+                composition: 'Pantoprazole 40 mg, Domperidone 30 mg',
+                indications: 'Acid Peptic Disorder, Chronic Gastritis, GERD, Post Operative, Nausea & Vomiting',
+                benefits: [
+                    'Prompt, powerful & precise proton pump inhibitor',
+                    'Inhibits only the active site of acid production',
+                    'An effective and well-tolerated choice for providing symptom relief of patients with GERD',
+                    'A pro-kinetic and anti-emetic',
+                    'Effective for the treatment of dyspepsia, as well as nausea and vomiting due to various conditions',
+                    'Better Patient Compliance Due to Convenient OD Dosage',
+                    'Proven Cardiac Safety',
+                    'Least Drug Interaction'
+                ],
+                dosage: 'As prescribed by the physician'
+            },
+            'prebirth': {
+                name: 'Prebirth SR 200',
+                image: 'assets/images/Tab-Prebirth-SR-200.jpg',
+                description: 'Natural Micronised Progesterone Sustained Release Tablets 200 mg',
+                composition: 'Natural Micronised Progesterone 200 mg',
+                indications: 'Premenstrual syndrome, Preterm Delivery, Threatened abortion, Luteal support during assisted Reproductive Techniques, Luteal Phase defects',
+                benefits: [
+                    'Potent multi-faceted endocrine agent with an expanding therapeutic profile',
+                    'Results in maintenance of pregnancy',
+                    'Reduces menstrual problems during hormone replacement therapy in post-menopausal women',
+                    'Better alternative than medroxyprogesterone acetate in terms of efficacy and safety'
+                ],
+                dosage: 'As prescribed by the physician'
+            },
+            'ecot-mr': {
+                name: 'Ecot-MR',
+                image: 'assets/images/Tab-Ecot-MR.jpg',
+                description: 'Etoricoxib 60 mg + Thiocolchicoside 4 mg Tablets',
+                composition: 'Etoricoxib 60 mg, Thiocolchicoside 4 mg',
+                indications: 'Ankylosing spondylitis, Acute Pain, Chronic Low Back Pain, Rheumatoid arthritis, Acute Gouty arthritis',
+                benefits: [
+                    'Relieves pain, swelling, stiffness and other symptoms of inflammation',
+                    'Muscle relaxant, anti-inflammatory & analgesic treats painful muscle contractions',
+                    'Produces muscle relaxation without any sedative side-effects'
+                ],
+                dosage: 'As prescribed by the physician'
+            },
+            'uracal-forte': {
+                name: 'Uracal Forte',
+                image: 'assets/images/Cap-Uracel-Forte.jpg',
+                description: 'Complete bone health supplement with Omega-3, Calcium, and essential vitamins',
+                composition: 'Omega-3 Fatty Acid Providing EPS 90 mg, DHA 60 mg, L-Methyl folate 1 mg, Vitamin K2-7 45 mcg, Methylcobalamin 1500 mcg, Pyridoxal-5-Phosphate 0.5 mg, Lycopene 6% 10000 mcg, Calcium Citrate 500 mg, Calcitrol 0.25 mcg, Magnesium Sulphate 50 mg',
+                indications: 'Bone health, Calcium and Vitamin D deficiency, General health maintenance',
+                benefits: [
+                    'Improves capillary circulation and acts as a blood thinner, which benefits brain & heart',
+                    'Interferes with PAF (Platelet Activating Factor) which has shown to possibly cause asthma, heart disease, hearing disorders & skin disorders like psoriasis',
+                    'Helps stop the damage to organs and tissues by free radicals',
+                    'Good antioxidant & free radical scavenger',
+                    'Improves memory & brain function & helps to preserve general health & vitality'
+                ],
+                dosage: 'As prescribed by the physician'
+            },
+            'tnib-jak': {
+                name: 'Tnib-Jak',
+                image: 'assets/images/Tab-Tnib-Jak.jpg',
+                description: 'Tofacitinib Citrate 5 mg Tablets',
+                composition: 'Tofacitinib Citrate 5 mg',
+                indications: 'Rheumatoid Arthritis, Psoriatic Arthritis, Ulcerative Colitis, Psoriasis, Ankylosing Spondylitis, Vitiligo, Atopic dermatitis',
+                benefits: [
+                    'The NIH covid 19 guidelines recommend tofacitinib as an alternative to baricitinib for the treatment of covid 19',
+                    'Reduces joint pain, swelling and further joint damage in Rheumatoid Arthritis',
+                    'Approved for adults with active Psoriatic Arthritis in which methotrexate did not work'
+                ],
+                dosage: 'As prescribed by the physician'
+            },
+            'tyga-60k': {
+                name: 'Tyga 60K',
+                image: 'assets/images/Shot-Tyga-60K.jpg',
+                description: 'Cholecalciferol 60000 IU Oral Solution (Nano Shot)',
+                composition: 'Cholecalciferol (Vitamin D3) 60000 IU',
+                indications: 'Rickets, Osteoporosis, Osteomalacia, Fracture, Bone & Muscle Pain',
+                benefits: [
+                    'The rapid calcium conservation',
+                    'Improves absorption & functioning of calcium',
+                    'Ensures bone mineralization, induces muscle cell growth',
+                    'Reduces bone & muscle pain, improves skeletal muscle functions'
+                ],
+                dosage: 'As prescribed by the physician'
+            }
+        };
+
+        // Open product modal
+        document.querySelectorAll('.view-product').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const productId = this.getAttribute('data-product');
+                const product = productData[productId];
+                
+                if (product) {
+                    document.getElementById('modal-product-name').textContent = product.name;
+                    
+                    let modalContent = `
+                        <div class="modal-product">
+                            <div class="modal-product-img">
+                                <img src="${product.image}" alt="${product.name}">
+                            </div>
+                            <div class="modal-product-info">
+                                <h3>${product.name}</h3>
+                                <p>${product.description}</p>
+                                
+                                <div class="product-specs">
+                                    <h4>Composition</h4>
+                                    <p>${product.composition}</p>
+                                    
+                                    <h4>Indications</h4>
+                                    <p>${product.indications}</p>
+                                    
+                                    <h4>Benefits</h4>
+                                    <ul>
+                                        ${product.benefits.map(benefit => `<li>${benefit}</li>`).join('')}
+                                    </ul>
+                                    
+                                    <h4>Dosage</h4>
+                                    <p>${product.dosage}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    document.getElementById('modal-product-content').innerHTML = modalContent;
+                    document.getElementById('product-modal').style.display = 'block';
+                }
+            });
+        });
+
+        // Close modal
+        document.querySelector('.close-modal').addEventListener('click', function() {
+            document.getElementById('product-modal').style.display = 'none';
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === document.getElementById('product-modal')) {
+                document.getElementById('product-modal').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
