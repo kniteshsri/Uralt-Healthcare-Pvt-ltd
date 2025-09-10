@@ -16,8 +16,9 @@
             --dark-text: #333;
             --light-text: #fff;
             --gray-text: #666;
-            --border-radius: 4px;
-            --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
         }
 
         * {
@@ -39,7 +40,7 @@
         a {
             text-decoration: none;
             color: var(--primary-blue);
-            transition: color 0.3s;
+            transition: var(--transition);
         }
 
         a:hover {
@@ -55,19 +56,24 @@
 
         .btn {
             display: inline-block;
-            padding: 12px 24px;
+            padding: 12px 28px;
             background-color: var(--primary-blue);
             color: var(--light-text);
             border: none;
             border-radius: var(--border-radius);
             cursor: pointer;
             font-weight: 600;
-            transition: background-color 0.3s;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
         }
 
         .btn:hover {
             background-color: var(--secondary-blue);
             color: var(--light-text);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .btn-green {
@@ -80,12 +86,12 @@
 
         .section-title {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             color: var(--primary-blue);
         }
 
         .section-title h2 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             margin-bottom: 15px;
             position: relative;
             display: inline-block;
@@ -94,18 +100,20 @@
         .section-title h2::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--primary-green);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-blue), var(--primary-green));
+            border-radius: 2px;
         }
 
         .section-title p {
             color: var(--gray-text);
             max-width: 700px;
-            margin: 0 auto;
+            margin: 25px auto 0;
+            font-size: 1.1rem;
         }
 
         /* Header Styles */
@@ -114,7 +122,7 @@
             box-shadow: var(--box-shadow);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
         }
 
         .header-container {
@@ -131,7 +139,7 @@
 
         .logo img {
             height: 50px;
-            margin-right: 10px;
+            margin-right: 12px;
         }
 
         .logo-text {
@@ -156,7 +164,7 @@
         }
 
         nav ul li {
-            margin-left: 25px;
+            margin-left: 30px;
         }
 
         nav ul li a {
@@ -164,6 +172,7 @@
             font-weight: 500;
             padding: 5px 0;
             position: relative;
+            font-size: 1rem;
         }
 
         nav ul li a::after {
@@ -201,35 +210,106 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 118, 163, 0.8), rgba(0, 90, 125, 0.8)), url('https://placehold.co/1200x600/0076a3/white?text=Uralt+Healthcare') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 118, 163, 0.85), rgba(0, 90, 125, 0.85)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
             color: var(--light-text);
-            padding: 100px 0;
+            padding: 120px 0;
             text-align: center;
+            position: relative;
         }
 
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-content h2 {
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background-color: var(--light-bg);
+            position: relative;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-green), var(--primary-blue));
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background-color: #fff;
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-blue), var(--primary-green));
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card i {
+            font-size: 3.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 25px;
+            background: linear-gradient(to right, var(--primary-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+            font-size: 1.5rem;
         }
 
         /* Products Section */
         .products {
-            padding: 80px 0;
+            padding: 100px 0;
+            background: linear-gradient(to bottom, #fff 0%, #f9fbfd 100%);
         }
 
         /* Filter Section */
         .filter-section {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             text-align: center;
         }
 
@@ -237,29 +317,32 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 15px;
+            margin-top: 25px;
         }
 
         .filter-btn {
-            padding: 8px 16px;
+            padding: 12px 24px;
             background-color: var(--light-bg);
-            border: 1px solid #ddd;
-            border-radius: var(--border-radius);
+            border: 2px solid var(--primary-blue);
+            border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: var(--transition);
+            font-weight: 600;
+            color: var(--primary-blue);
         }
 
         .filter-btn:hover, .filter-btn.active {
             background-color: var(--primary-blue);
             color: var(--light-text);
-            border-color: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 118, 163, 0.2);
         }
 
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            gap: 40px;
         }
 
         .product-card {
@@ -267,24 +350,31 @@
             border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--box-shadow);
-            transition: transform 0.3s;
+            transition: var(--transition);
             cursor: pointer;
+            position: relative;
         }
 
         .product-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
         .product-img {
-            height: 200px;
+            height: 280px;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
         }
 
         .product-img img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            transition: transform 0.5s;
+            transition: var(--transition);
+            padding: 20px;
         }
 
         .product-card:hover .product-img img {
@@ -293,28 +383,36 @@
 
         .product-info {
             padding: 20px;
+            text-align: center;
+            background: #fff;
         }
 
-        .product-info h3 {
-            margin-bottom: 10px;
-            color: var(--primary-blue);
-        }
-
-        .product-info p {
-            color: var(--gray-text);
-            margin-bottom: 15px;
+        .product-info .btn {
+            margin-top: 10px;
+            width: 100%;
         }
 
         /* About Section */
         .about {
-            padding: 80px 0;
-            background-color: var(--light-bg);
+            padding: 100px 0;
+            background: linear-gradient(to bottom, #f9fbfd 0%, #fff 100%);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent);
         }
 
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 50px;
             align-items: center;
         }
 
@@ -322,141 +420,101 @@
             border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--box-shadow);
+            position: relative;
+        }
+
+        .about-img::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px solid var(--primary-blue);
+            border-radius: var(--border-radius);
+            opacity: 0.2;
+            z-index: -1;
         }
 
         .about-img img {
             width: 100%;
             height: auto;
             display: block;
+            transition: var(--transition);
+        }
+
+        .about-img:hover img {
+            transform: scale(1.03);
         }
 
         .about-text h2 {
             color: var(--primary-blue);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-size: 2.2rem;
         }
 
         .about-text p {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            line-height: 1.8;
         }
 
-        /* Management Section */
-        .management {
-            padding: 80px 0;
-        }
-
-        .management-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .manager-card {
-            background-color: #fff;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            text-align: center;
-        }
-
-        .manager-img {
-            height: 250px;
-            overflow: hidden;
-        }
-
-        .manager-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .manager-info {
-            padding: 20px;
-        }
-
-        .manager-info h3 {
-            color: var(--primary-blue);
-            margin-bottom: 5px;
-        }
-
-        .manager-info p {
-            color: var(--gray-text);
-            margin-bottom: 15px;
-        }
-
-        /* Contact Section */
-        .contact {
+        /* Certifications Section */
+        .certifications {
             padding: 80px 0;
             background-color: var(--light-bg);
         }
 
-        .contact-container {
+        .certifications-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
         }
 
-        .contact-info h3 {
+        .certification-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .certification-card i {
+            font-size: 3rem;
             color: var(--primary-blue);
             margin-bottom: 20px;
         }
 
-        .contact-details {
-            margin-bottom: 30px;
-        }
-
-        .contact-details p {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-
-        .contact-details i {
-            margin-right: 10px;
+        .certification-card h3 {
             color: var(--primary-blue);
-        }
-
-        .map iframe {
-            width: 100%;
-            height: 300px;
-            border: none;
-            border-radius: var(--border-radius);
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: var(--border-radius);
-            font-size: 1rem;
-        }
-
-        .contact-form textarea {
-            min-height: 150px;
-            resize: vertical;
+            margin-bottom: 15px;
         }
 
         /* Footer */
         footer {
             background-color: var(--secondary-blue);
             color: var(--light-text);
-            padding: 60px 0 20px;
+            padding: 80px 0 30px;
             margin-top: auto;
         }
 
         .footer-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 50px;
+            margin-bottom: 50px;
         }
 
         .footer-col h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
         }
 
         .footer-col h3::after {
@@ -474,23 +532,26 @@
         }
 
         .footer-col ul li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .footer-col ul li a {
             color: #ccc;
-            transition: color 0.3s;
+            transition: var(--transition);
+            display: inline-block;
         }
 
         .footer-col ul li a:hover {
             color: var(--light-text);
-            padding-left: 5px;
+            padding-left: 8px;
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 20px;
+            padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ccc;
         }
 
         /* Responsive Styles */
@@ -519,10 +580,11 @@
             nav ul {
                 flex-direction: column;
                 align-items: center;
+                margin-top: 20px;
             }
 
             nav ul li {
-                margin: 10px 0;
+                margin: 12px 0;
             }
 
             .mobile-menu-btn {
@@ -542,11 +604,24 @@
             }
 
             .hero-content h2 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
 
             .hero-content p {
-                font-size: 1rem;
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .filter-buttons {
+                gap: 10px;
+            }
+
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
             }
         }
 
@@ -567,7 +642,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.85);
             z-index: 1000;
             overflow-y: auto;
             padding: 20px;
@@ -576,17 +651,17 @@
         .modal-content {
             background-color: #fff;
             margin: 40px auto;
-            max-width: 800px;
+            max-width: 900px;
             border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
             position: relative;
-            animation: modalFadeIn 0.3s;
+            animation: modalFadeIn 0.4s;
         }
 
         @keyframes modalFadeIn {
             from {
                 opacity: 0;
-                transform: translateY(-50px);
+                transform: translateY(-60px);
             }
             to {
                 opacity: 1;
@@ -595,85 +670,115 @@
         }
 
         .modal-header {
-            padding: 20px;
+            padding: 25px 30px;
             border-bottom: 1px solid #eee;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
         }
 
         .modal-header h2 {
-            color: var(--primary-blue);
+            color: var(--light-text);
             margin: 0;
+            font-size: 1.8rem;
         }
 
         .close-modal {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
-            color: var(--gray-text);
+            color: var(--light-text);
             background: none;
             border: none;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            transform: rotate(90deg);
         }
 
         .modal-body {
-            padding: 20px;
+            padding: 30px;
         }
 
         .modal-product {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 40px;
         }
 
         .modal-product-img {
             border-radius: var(--border-radius);
             overflow: hidden;
+            box-shadow: var(--box-shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .modal-product-img img {
             width: 100%;
             height: auto;
-            display: block;
+            max-height: 400px;
+            object-fit: contain;
         }
 
         .modal-product-info h3 {
             color: var(--primary-blue);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
         }
 
         .modal-product-info p {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: var(--gray-text);
+            line-height: 1.7;
         }
 
         .product-specs {
-            margin-top: 20px;
+            margin-top: 30px;
         }
 
         .product-specs h4 {
             color: var(--primary-blue);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
         }
 
         .product-specs ul {
             list-style-type: none;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .product-specs ul li {
-            padding: 5px 0;
-            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+            border-bottom: 1px solid #f5f5f5;
+            display: flex;
+            align-items: center;
         }
 
         .product-specs ul li:before {
             content: '•';
             color: var(--primary-green);
-            margin-right: 10px;
+            margin-right: 12px;
+            font-size: 1.5rem;
         }
 
         @media (max-width: 768px) {
             .modal-product {
                 grid-template-columns: 1fr;
+            }
+            
+            .modal-header {
+                padding: 20px;
+            }
+            
+            .modal-body {
+                padding: 20px;
             }
         }
     </style>
@@ -683,7 +788,6 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <img src="https://placehold.co/50x50/0076a3/white?text=U" alt="Uralt Logo">
                 <div class="logo-text">
                     <h1>Uralt Healthcare</h1>
                     <span>Your path of wellness</span>
@@ -695,8 +799,8 @@
             <nav id="nav">
                 <ul>
                     <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
-                    <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
                     <li><a href="#" class="nav-link" data-page="products">Products</a></li>
+                    <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
                     <li><a href="#" class="nav-link" data-page="management">Management</a></li>
                     <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
                 </ul>
@@ -755,8 +859,6 @@
                             <img src="assets/images/Cap-Uradom-E.jpg" alt="Uradom E">
                         </div>
                         <div class="product-info">
-                            <h3>Uradom E</h3>
-                            <p>Esomeprazole and Domperidone combination for acid-related disorders</p>
                             <a href="#" class="btn view-product" data-product="uradom-e">Learn More</a>
                         </div>
                     </div>
@@ -765,8 +867,6 @@
                             <img src="assets/images/Cap-Profe.jpg" alt="Profe">
                         </div>
                         <div class="product-info">
-                            <h3>Profe</h3>
-                            <p>Lactobacillus acidophilus 0.5 billion CFU + Lactobacillus plantarum 0.5 billion CFU</p>
                             <a href="#" class="btn view-product" data-product="profe">Learn More</a>
                         </div>
                     </div>
@@ -775,14 +875,39 @@
                             <img src="assets/images/Cap-Urodom-P.jpg" alt="Urodom P">
                         </div>
                         <div class="product-info">
-                            <h3>Urodom P</h3>
-                            <p>Pantoprazole 40 mg and Domperidone 30 mg Capsules</p>
                             <a href="#" class="btn view-product" data-product="urodom-p">Learn More</a>
                         </div>
                     </div>
                 </div>
-                <div style="text-align: center; margin-top: 40px;">
+                <div style="text-align: center; margin-top: 50px;">
                     <a href="#" class="btn btn-green nav-link" data-page="products">View All Products</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section class="certifications">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Certifications</h2>
+                    <p>We are proud to maintain the highest standards in quality and safety</p>
+                </div>
+                <div class="certifications-grid">
+                    <div class="certification-card">
+                        <i class="fas fa-award"></i>
+                        <h3>ISO 9001:2015 Certified</h3>
+                        <p>Our quality management system is certified to international standards</p>
+                    </div>
+                    <div class="certification-card">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>GMP Compliant</h3>
+                        <p>We follow Good Manufacturing Practices in all our processes</p>
+                    </div>
+                    <div class="certification-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Quality Assurance</h3>
+                        <p>Rigorous quality checks ensure the safety of all our products</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -799,68 +924,11 @@
                         <a href="#" class="btn nav-link" data-page="about">Learn More About Us</a>
                     </div>
                     <div class="about-img">
-                        <img src="https://placehold.co/600x400/0076a3/white?text=Uralt+Healthcare" alt="Uralt Healthcare">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Uralt Healthcare">
                     </div>
                 </div>
             </div>
         </section>
-    </div>
-
-    <!-- About Page -->
-    <div id="about" class="page">
-        <div class="container page-content">
-            <div class="section-title">
-                <h2>About Uralt Healthcare</h2>
-                <p>Learn more about our company, mission, and values</p>
-            </div>
-
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Our Story</h2>
-                    <p>URALT HEALTHCARE PRIVATE LIMITED is an Indian Private Limited Company incorporated on 09-Mar-2024. We operate in the wholesale trade sector (excluding motor vehicles and motorcycles).</p>
-                    <p>Our authorized and paid-up capital is ₹1.00 Lakh, and we are headquartered in Jaipur, India.</p>
-                    <p>We are committed to providing high-quality pharmaceutical products that meet global standards while ensuring accessibility and affordability for all.</p>
-                    
-                    <h2>Our Mission</h2>
-                    <p>To improve lives through innovative and high-quality healthcare solutions that are accessible to all.</p>
-                    
-                    <h2>Our Values</h2>
-                    <ul>
-                        <li>Quality: We never compromise on the quality of our products</li>
-                        <li>Innovation: We continuously research and develop new solutions</li>
-                        <li>Integrity: We conduct our business with honesty and transparency</li>
-                        <li>Accessibility: We strive to make healthcare affordable for everyone</li>
-                    </ul>
-                </div>
-                <div class="about-img">
-                    <img src="https://placehold.co/600x400/0076a3/white?text=Uralt+Team" alt="Uralt Team">
-                </div>
-            </div>
-
-            <div class="features" style="background-color: transparent; padding: 40px 0;">
-                <div class="section-title">
-                    <h2>Our Certifications</h2>
-                    <p>We are proud to maintain the highest standards in quality and safety</p>
-                </div>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <i class="fas fa-award"></i>
-                        <h3>ISO 9001:2015 Certified</h3>
-                        <p>Our quality management system is certified to international standards</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-check-circle"></i>
-                        <h3>GMP Compliant</h3>
-                        <p>We follow Good Manufacturing Practices in all our processes</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>Quality Assurance</h3>
-                        <p>Rigorous quality checks ensure the safety of all our products</p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- Products Page -->
@@ -893,8 +961,6 @@
                         <img src="assets/images/Cap-Uradom-E.jpg" alt="Uradom E">
                     </div>
                     <div class="product-info">
-                        <h3>Uradom E</h3>
-                        <p>Esomeprazole Magnesium Trihydrate 40 mg + Domperidone 30 mg</p>
                         <a href="#" class="btn view-product" data-product="uradom-e">Learn More</a>
                     </div>
                 </div>
@@ -903,8 +969,6 @@
                         <img src="assets/images/Cap-Profe.jpg" alt="Profe">
                     </div>
                     <div class="product-info">
-                        <h3>Profe</h3>
-                        <p>Lactobacillus acidophilus 0.5 billion CFU + Lactobacillus plantarum 0.5 billion CFU</p>
                         <a href="#" class="btn view-product" data-product="profe">Learn More</a>
                     </div>
                 </div>
@@ -913,8 +977,6 @@
                         <img src="assets/images/Cap-Urodom-P.jpg" alt="Urodom P">
                     </div>
                     <div class="product-info">
-                        <h3>Urodom P</h3>
-                        <p>Pantoprazole 40 mg and Domperidone 30 mg Capsules</p>
                         <a href="#" class="btn view-product" data-product="urodom-p">Learn More</a>
                     </div>
                 </div>
@@ -923,8 +985,6 @@
                         <img src="assets/images/Tab-Prebirth-SR-200.jpg" alt="Prebirth SR 200">
                     </div>
                     <div class="product-info">
-                        <h3>Prebirth SR 200</h3>
-                        <p>Natural Micronised Progesterone Sustained Release Tablets 200 mg</p>
                         <a href="#" class="btn view-product" data-product="prebirth">Learn More</a>
                     </div>
                 </div>
@@ -933,8 +993,6 @@
                         <img src="assets/images/Tab-Ecot-MR.jpg" alt="Ecot-MR">
                     </div>
                     <div class="product-info">
-                        <h3>Ecot-MR</h3>
-                        <p>Etoricoxib 60 mg + Thiocolchicoside 4 mg Tablets</p>
                         <a href="#" class="btn view-product" data-product="ecot-mr">Learn More</a>
                     </div>
                 </div>
@@ -943,8 +1001,6 @@
                         <img src="assets/images/Cap-Uracel-Forte.jpg" alt="Uracal Forte">
                     </div>
                     <div class="product-info">
-                        <h3>Uracal Forte</h3>
-                        <p>Complete bone health supplement with multiple vitamins and minerals</p>
                         <a href="#" class="btn view-product" data-product="uracal-forte">Learn More</a>
                     </div>
                 </div>
@@ -953,8 +1009,6 @@
                         <img src="assets/images/Tab-Tnib-Jak.jpg" alt="Tnib-Jak">
                     </div>
                     <div class="product-info">
-                        <h3>Tnib-Jak</h3>
-                        <p>Tofacitinib Citrate 5 mg Tablets</p>
                         <a href="#" class="btn view-product" data-product="tnib-jak">Learn More</a>
                     </div>
                 </div>
@@ -963,8 +1017,6 @@
                         <img src="assets/images/Shot-Tyga-60K.jpg" alt="Tyga 60K">
                     </div>
                     <div class="product-info">
-                        <h3>Tyga 60K</h3>
-                        <p>Cholecalciferol 60000 IU Oral Solution (Nano Shot)</p>
                         <a href="#" class="btn view-product" data-product="tyga-60k">Learn More</a>
                     </div>
                 </div>
@@ -972,98 +1024,58 @@
         </div>
     </div>
 
-    <!-- Management Page -->
-    <div id="management" class="page">
+    <!-- About Page -->
+    <div id="about" class="page">
         <div class="container page-content">
             <div class="section-title">
-                <h2>Our Management</h2>
-                <p>Meet the leadership team behind Uralt Healthcare</p>
+                <h2>About Uralt Healthcare</h2>
+                <p>Learn more about our company, mission, and values</p>
             </div>
 
-            <div class="management-grid">
-                <div class="manager-card">
-                    <div class="manager-img">
-                        <img src="https://placehold.co/400x500/0076a3/white?text=Pawan+Kumar+Sharma" alt="Pawan Kumar Sharma">
-                    </div>
-                    <div class="manager-info">
-                        <h3>Pawan Kumar Sharma</h3>
-                        <p>Director</p>
-                        <p>Experienced pharmaceutical professional with over 15 years in the industry.</p>
-                    </div>
-                </div>
-                <div class="manager-card">
-                    <div class="manager-img">
-                        <img src="https://placehold.co/400x500/4caf50/white?text=Amit+Kumar+Basir" alt="Amit Kumar Basir">
-                    </div>
-                    <div class="manager-info">
-                        <h3>Amit Kumar Basir</h3>
-                        <p>Director</p>
-                        <p>Expert in business development and strategic planning in healthcare sector.</p>
-                    </div>
-                </div>
-                <div class="manager-card">
-                    <div class="manager-img">
-                        <img src="https://placehold.co/400x500/0076a3/white?text=Ashvini+Kumar+Mudgal" alt="Ashvini Kumar Mudgal">
-                    </div>
-                    <div class="manager-info">
-                        <h3>Ashvini Kumar Mudgal</h3>
-                        <p>Director</p>
-                        <p>Specialized in operations and supply chain management with focus on quality assurance.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="about-content" style="margin-top: 60px;">
+            <div class="about-content">
                 <div class="about-text">
-                    <h2>Our Leadership Philosophy</h2>
-                    <p>At Uralt Healthcare, we believe that strong leadership is the foundation of our success. Our management team brings together diverse expertise from various facets of the pharmaceutical industry.</p>
-                    <p>We are committed to:</p>
+                    <h2>Our Story</h2>
+                    <p>URALT HEALTHCARE PRIVATE LIMITED is an Indian Private Limited Company incorporated on 09-Mar-2024. We operate in the wholesale trade sector (excluding motor vehicles and motorcycles).</p>
+                    <p>Our authorized and paid-up capital is ₹1.00 Lakh, and we are headquartered in Jaipur, India.</p>
+                    <p>We are committed to providing high-quality pharmaceutical products that meet global standards while ensuring accessibility and affordability for all.</p>
+                    
+                    <h2>Our Mission</h2>
+                    <p>To improve lives through innovative and high-quality healthcare solutions that are accessible to all.</p>
+                    
+                    <h2>Our Values</h2>
                     <ul>
-                        <li>Fostering innovation and research in healthcare</li>
-                        <li>Maintaining the highest standards of quality and safety</li>
-                        <li>Building lasting relationships with healthcare professionals</li>
-                        <li>Creating value for our customers and stakeholders</li>
+                        <li>Quality: We never compromise on the quality of our products</li>
+                        <li>Innovation: We continuously research and develop new solutions</li>
+                        <li>Integrity: We conduct our business with honesty and transparency</li>
+                        <li>Accessibility: We strive to make healthcare affordable for everyone</li>
                     </ul>
                 </div>
                 <div class="about-img">
-                    <img src="https://placehold.co/600x400/4caf50/white?text=Leadership+Team" alt="Leadership Team">
+                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Uralt Team">
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Contact Page -->
-    <div id="contact" class="page">
-        <div class="container page-content">
-            <div class="section-title">
-                <h2>Contact Us</h2>
-                <p>Get in touch with us for any inquiries or support</p>
-            </div>
-
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Get In Touch</h3>
-                    <div class="contact-details">
-                        <p><i class="fas fa-map-marker-alt"></i> Shop No. 01, Kh No. 1350 Gandhi Basti, Jhotwara, Bindayaka, Jaipur, Rajasthan 302012, India</p>
-                        <p><i class="fas fa-phone"></i> +91 XXXXX XXXXX</p>
-                        <p><i class="fas fa-envelope"></i> info@uralthealthcare.com</p>
-                        <p><i class="fas fa-clock"></i> Monday to Friday: 9:00 AM - 6:00 PM</p>
-                    </div>
-
-                    <div class="map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.367318294536!2d75.8273143753377!3d26.92331987671674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db6c100000001%3A0x6a25a5c5f3a17f8!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1726423567890!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
+            <div class="certifications" style="background-color: transparent; padding: 60px 0 0;">
+                <div class="section-title">
+                    <h2>Our Certifications</h2>
+                    <p>We are proud to maintain the highest standards in quality and safety</p>
                 </div>
-
-                <div class="contact-form">
-                    <h3>Send Us a Message</h3>
-                    <form id="contactForm">
-                        <input type="text" id="name" placeholder="Your Name" required>
-                        <input type="email" id="email" placeholder="Your Email" required>
-                        <input type="tel" id="phone" placeholder="Your Phone">
-                        <textarea id="message" placeholder="Your Message" required></textarea>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
+                <div class="certifications-grid">
+                    <div class="certification-card">
+                        <i class="fas fa-award"></i>
+                        <h3>ISO 9001:2015 Certified</h3>
+                        <p>Our quality management system is certified to international standards</p>
+                    </div>
+                    <div class="certification-card">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>GMP Compliant</h3>
+                        <p>We follow Good Manufacturing Practices in all our processes</p>
+                    </div>
+                    <div class="certification-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Quality Assurance</h3>
+                        <p>Rigorous quality checks ensure the safety of all our products</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1081,8 +1093,8 @@
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="#" class="nav-link" data-page="home">Home</a></li>
-                        <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
                         <li><a href="#" class="nav-link" data-page="products">Products</a></li>
+                        <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
                         <li><a href="#" class="nav-link" data-page="management">Management</a></li>
                         <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
                     </ul>
@@ -1148,23 +1160,6 @@
                 document.getElementById('nav').classList.remove('active');
             });
         });
-
-        // Simple form validation for contact page
-        if (document.getElementById('contactForm')) {
-            document.getElementById('contactForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                let name = document.getElementById('name').value;
-                let email = document.getElementById('email').value;
-                let message = document.getElementById('message').value;
-                
-                if (name && email && message) {
-                    alert('Thank you for your message. We will get back to you soon!');
-                    this.reset();
-                } else {
-                    alert('Please fill all required fields');
-                }
-            });
-        }
 
         // Product filtering functionality
         document.querySelectorAll('.filter-btn').forEach(button => {
