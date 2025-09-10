@@ -5,789 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uralt Healthcare - Your Path of Wellness</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Global Styles */
-        :root {
-            --primary-blue: #0076a3;
-            --secondary-blue: #005a7d;
-            --primary-green: #4caf50;
-            --secondary-green: #388e3c;
-            --light-bg: #f8f9fa;
-            --dark-text: #333;
-            --light-text: #fff;
-            --gray-text: #666;
-            --border-radius: 8px;
-            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            line-height: 1.6;
-            color: var(--dark-text);
-            background-color: #fff;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--primary-blue);
-            transition: var(--transition);
-        }
-
-        a:hover {
-            color: var(--secondary-blue);
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            background-color: var(--primary-blue);
-            color: var(--light-text);
-            border: none;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            font-weight: 600;
-            transition: var(--transition);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-size: 0.9rem;
-        }
-
-        .btn:hover {
-            background-color: var(--secondary-blue);
-            color: var(--light-text);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-green {
-            background-color: var(--primary-green);
-        }
-
-        .btn-green:hover {
-            background-color: var(--secondary-green);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            color: var(--primary-blue);
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(to right, var(--primary-blue), var(--primary-green));
-            border-radius: 2px;
-        }
-
-        .section-title p {
-            color: var(--gray-text);
-            max-width: 700px;
-            margin: 25px auto 0;
-            font-size: 1.1rem;
-        }
-
-        /* Header Styles */
-        header {
-            background-color: #fff;
-            box-shadow: var(--box-shadow);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 50px;
-            margin-right: 12px;
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-text h1 {
-            font-size: 1.8rem;
-            color: var(--primary-blue);
-            line-height: 1.2;
-        }
-
-        .logo-text span {
-            font-size: 0.9rem;
-            color: var(--gray-text);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 30px;
-        }
-
-        nav ul li a {
-            color: var(--dark-text);
-            font-weight: 500;
-            padding: 5px 0;
-            position: relative;
-            font-size: 1rem;
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-blue);
-            transition: width 0.3s;
-        }
-
-        nav ul li a:hover::after,
-        nav ul li a.active::after {
-            width: 100%;
-        }
-
-        nav ul li a.active {
-            color: var(--primary-blue);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--primary-blue);
-        }
-
-        /* Page Content Styles */
-        .page-content {
-            padding: 80px 0;
-            flex: 1;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 118, 163, 0.85), rgba(0, 90, 125, 0.85)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-            color: var(--light-text);
-            padding: 120px 0;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-content h2 {
-            font-size: 3.2rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero-content p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 100px 0;
-            background-color: var(--light-bg);
-            position: relative;
-        }
-
-        .features::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(to right, var(--primary-green), var(--primary-blue));
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .feature-card {
-            background-color: #fff;
-            padding: 40px 30px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            text-align: center;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--primary-blue), var(--primary-green));
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-card i {
-            font-size: 3.5rem;
-            color: var(--primary-blue);
-            margin-bottom: 25px;
-            background: linear-gradient(to right, var(--primary-blue), var(--primary-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .feature-card h3 {
-            margin-bottom: 20px;
-            color: var(--primary-blue);
-            font-size: 1.5rem;
-        }
-
-        /* Products Section */
-        .products {
-            padding: 100px 0;
-            background: linear-gradient(to bottom, #fff 0%, #f9fbfd 100%);
-        }
-
-        /* Filter Section */
-        .filter-section {
-            margin-bottom: 50px;
-            text-align: center;
-        }
-
-        .filter-buttons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        .filter-btn {
-            padding: 12px 24px;
-            background-color: var(--light-bg);
-            border: 2px solid var(--primary-blue);
-            border-radius: 50px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: 600;
-            color: var(--primary-blue);
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            background-color: var(--primary-blue);
-            color: var(--light-text);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 118, 163, 0.2);
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-        }
-
-        .product-card {
-            background-color: #fff;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-            cursor: pointer;
-            position: relative;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .product-img {
-            height: 280px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #f8f9fa;
-        }
-
-        .product-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            transition: var(--transition);
-            padding: 20px;
-        }
-
-        .product-card:hover .product-img img {
-            transform: scale(1.05);
-        }
-
-        .product-info {
-            padding: 20px;
-            text-align: center;
-            background: #fff;
-        }
-
-        .product-info .btn {
-            margin-top: 10px;
-            width: 100%;
-        }
-
-        /* About Section */
-        .about {
-            padding: 100px 0;
-            background: linear-gradient(to bottom, #f9fbfd 0%, #fff 100%);
-            position: relative;
-        }
-
-        .about::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .about-img {
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            position: relative;
-        }
-
-        .about-img::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            border: 2px solid var(--primary-blue);
-            border-radius: var(--border-radius);
-            opacity: 0.2;
-            z-index: -1;
-        }
-
-        .about-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: var(--transition);
-        }
-
-        .about-img:hover img {
-            transform: scale(1.03);
-        }
-
-        .about-text h2 {
-            color: var(--primary-blue);
-            margin-bottom: 25px;
-            font-size: 2.2rem;
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        /* Certifications Section */
-        .certifications {
-            padding: 80px 0;
-            background-color: var(--light-bg);
-        }
-
-        .certifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .certification-card {
-            background: #fff;
-            padding: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .certification-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .certification-card i {
-            font-size: 3rem;
-            color: var(--primary-blue);
-            margin-bottom: 20px;
-        }
-
-        .certification-card h3 {
-            color: var(--primary-blue);
-            margin-bottom: 15px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--secondary-blue);
-            color: var(--light-text);
-            padding: 80px 0 30px;
-            margin-top: auto;
-        }
-
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            margin-bottom: 50px;
-        }
-
-        .footer-col h3 {
-            font-size: 1.3rem;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--primary-green);
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 12px;
-        }
-
-        .footer-col ul li a {
-            color: #ccc;
-            transition: var(--transition);
-            display: inline-block;
-        }
-
-        .footer-col ul li a:hover {
-            color: var(--light-text);
-            padding-left: 8px;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: #ccc;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .about-content,
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-
-            .about-img {
-                order: -1;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .logo {
-                margin-bottom: 15px;
-                justify-content: center;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-                margin-top: 20px;
-            }
-
-            nav ul li {
-                margin: 12px 0;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-                position: absolute;
-                top: 20px;
-                right: 20px;
-            }
-
-            nav {
-                display: none;
-                width: 100%;
-            }
-
-            nav.active {
-                display: block;
-            }
-
-            .hero-content h2 {
-                font-size: 2.5rem;
-            }
-
-            .hero-content p {
-                font-size: 1.1rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .filter-buttons {
-                gap: 10px;
-            }
-
-            .filter-btn {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-        }
-
-        /* Page Styles */
-        .page {
-            display: none;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            z-index: 1000;
-            overflow-y: auto;
-            padding: 20px;
-        }
-
-        .modal-content {
-            background-color: #fff;
-            margin: 40px auto;
-            max-width: 900px;
-            border-radius: var(--border-radius);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            position: relative;
-            animation: modalFadeIn 0.4s;
-        }
-
-        @keyframes modalFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-60px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .modal-header {
-            padding: 25px 30px;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
-            color: white;
-            border-radius: var(--border-radius) var(--border-radius) 0 0;
-        }
-
-        .modal-header h2 {
-            color: var(--light-text);
-            margin: 0;
-            font-size: 1.8rem;
-        }
-
-        .close-modal {
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: var(--light-text);
-            background: none;
-            border: none;
-            transition: var(--transition);
-        }
-
-        .close-modal:hover {
-            transform: rotate(90deg);
-        }
-
-        .modal-body {
-            padding: 30px;
-        }
-
-        .modal-product {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .modal-product-img {
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-product-img img {
-            width: 100%;
-            height: auto;
-            max-height: 400px;
-            object-fit: contain;
-        }
-
-        .modal-product-info h3 {
-            color: var(--primary-blue);
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-
-        .modal-product-info p {
-            margin-bottom: 20px;
-            color: var(--gray-text);
-            line-height: 1.7;
-        }
-
-        .product-specs {
-            margin-top: 30px;
-        }
-
-        .product-specs h4 {
-            color: var(--primary-blue);
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .product-specs ul {
-            list-style-type: none;
-            margin-bottom: 25px;
-        }
-
-        .product-specs ul li {
-            padding: 10px 0;
-            border-bottom: 1px solid #f5f5f5;
-            display: flex;
-            align-items: center;
-        }
-
-        .product-specs ul li:before {
-            content: '•';
-            color: var(--primary-green);
-            margin-right: 12px;
-            font-size: 1.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .modal-product {
-                grid-template-columns: 1fr;
-            }
-            
-            .modal-header {
-                padding: 20px;
-            }
-            
-            .modal-body {
-                padding: 20px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/scripts.js" defer></script>
 </head>
 <body>
     <!-- Header Section -->
     <header>
         <div class="container header-container">
             <div class="logo">
+                <div>
+                    <img src="assets/images/logo-v1.2.png" alt="Company Logo">
+                </div>
                 <div class="logo-text">
                     <h1>Uralt Healthcare</h1>
                     <span>Your path of wellness</span>
@@ -839,7 +67,7 @@
                     </div>
                     <div class="feature-card">
                         <i class="fas fa-globe"></i>
-                        <h3>Global Standards</h3>
+                        <h3>Global Standards</3>
                         <p>Products manufactured following international quality standards</p>
                     </div>
                 </div>
@@ -1081,6 +309,151 @@
         </div>
     </div>
 
+    <!-- Management Page -->
+    <div id="management" class="page">
+        <div class="container page-content">
+            <div class="section-title">
+                <h2>Our Management Team</h2>
+                <p>Meet the experienced leadership behind Uralt Healthcare</p>
+            </div>
+
+            <div class="management-grid">
+                <div class="manager-card">
+                    <div class="manager-img">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="manager-info">
+                        <h3>Pawan Kumar Sharma</h3>
+                        <span class="position">Director</span>
+                        <p>With over 15 years of experience in the pharmaceutical industry, Pawan Kumar Sharma brings extensive knowledge in business development and strategic planning. He has played a pivotal role in establishing Uralt Healthcare as a trusted name in the industry.</p>
+                        <div class="manager-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="manager-card">
+                    <div class="manager-img">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="manager-info">
+                        <h3>Amit Kumar Basir</h3>
+                        <span class="position">Director</span>
+                        <p>Amit Kumar Basir specializes in operations and supply chain management with a strong focus on quality assurance. His expertise ensures that Uralt Healthcare maintains the highest standards in product quality and distribution efficiency.</p>
+                        <div class="manager-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="manager-card">
+                    <div class="manager-img">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="manager-info">
+                        <h3>Ashvini Kumar Mudgal</h3>
+                        <span class="position">Director</span>
+                        <p>Ashvini Kumar Mudgal brings expertise in regulatory affairs and compliance. His knowledge of the pharmaceutical regulatory landscape ensures that Uralt Healthcare operates in full compliance with all national and international regulations.</p>
+                        <div class="manager-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-content" style="margin-top: 60px;">
+                <div class="about-text">
+                    <h2>Our Leadership Philosophy</h2>
+                    <p>At Uralt Healthcare, we believe that strong leadership is the foundation of our success. Our management team brings together diverse expertise from various facets of the pharmaceutical industry.</p>
+                    <p>We are committed to:</p>
+                    <ul>
+                        <li>Fostering innovation and research in healthcare</li>
+                        <li>Maintaining the highest standards of quality and safety</li>
+                        <li>Building lasting relationships with healthcare professionals</li>
+                        <li>Creating value for our customers and stakeholders</li>
+                        <li>Ensuring ethical practices in all our operations</li>
+                    </ul>
+                    <p>Our leadership team meets regularly to review company performance, strategize for future growth, and ensure that we remain true to our mission of providing accessible healthcare solutions.</p>
+                </div>
+                <div class="about-img">
+                    <img src="assets/images/Info.jpg" alt="Leadership Team">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <div class="container page-content">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with us for any inquiries or support</p>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-details">
+                        <p><i class="fas fa-map-marker-alt"></i> Shop No. 01, Kh No. 1350 Gandhi Basti, Jhotwara, Bindayaka, Jaipur, Rajasthan 302012, India</p>
+                        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                        <p><i class="fas fa-envelope"></i> info@uralthealthcare.com</p>
+                        <p><i class="fas fa-clock"></i> Monday to Friday: 9:00 AM - 6:00 PM</p>
+                        <p><i class="fas fa-clock"></i> Saturday: 10:00 AM - 2:00 PM</p>
+                    </div>
+
+                    <h3>Follow Us</h3>
+                    <div class="manager-social" style="justify-content: flex-start; margin-top: 20px;">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+
+                    <div class="map" style="margin-top: 30px;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.367318294536!2d75.8273143753377!3d26.92331987671674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db6c100000001%3A0x6a25a5c5f3a17f8!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1726423567890!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="Your Phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="product-inquiry">Product Inquiry</option>
+                                <option value="partnership">Partnership Opportunities</option>
+                                <option value="careers">Careers</option>
+                                <option value="distributor">Become a Distributor</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -1103,7 +476,7 @@
                     <h3>Contact Info</h3>
                     <ul>
                         <li><i class="fas fa-map-marker-alt"></i> Shop No. 01, Kh No. 1350 Gandhi Basti, Jhotwara, Bindayaka, Jaipur, Rajasthan 302012, India</li>
-                        <li><i class="fas fa-phone"></i> +91 XXXXX XXXXX</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
                         <li><i class="fas fa-envelope"></i> info@uralthealthcare.com</li>
                     </ul>
                 </div>
@@ -1374,6 +747,24 @@
                 document.getElementById('product-modal').style.display = 'none';
             }
         });
+
+        // Contact form validation
+        if (document.getElementById('contactForm')) {
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                let name = document.getElementById('name').value;
+                let email = document.getElementById('email').value;
+                let subject = document.getElementById('subject').value;
+                let message = document.getElementById('message').value;
+                
+                if (name && email && subject && message) {
+                    alert('Thank you for your message. We will get back to you soon!');
+                    this.reset();
+                } else {
+                    alert('Please fill all required fields');
+                }
+            });
+        }
     </script>
 </body>
 </html>
