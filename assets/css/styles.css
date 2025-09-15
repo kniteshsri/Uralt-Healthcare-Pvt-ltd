@@ -862,16 +862,6 @@
             padding: 20px;
         }
 
-        .modal-content {
-            background-color: #fff;
-            margin: 40px auto;
-            max-width: 900px;
-            border-radius: var(--border-radius);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            position: relative;
-            animation: modalFadeIn 0.4s;
-        }
-
         @keyframes modalFadeIn {
             from {
                 opacity: 0;
@@ -892,6 +882,7 @@
             background: linear-gradient(to right, var(--primary-blue), var(--secondary-yellow));
             color: white;
             border-radius: var(--border-radius) var(--border-radius) 0 0;
+            flex-shrink: 0;
         }
 
         .modal-header h2 {
@@ -1043,3 +1034,378 @@
                 height: 300px; /* taller for mobile readability */
             }
         }
+
+        .product-img.no-image {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #F9B900;
+            padding: 30px 15px;
+            border-radius: 8px;
+            min-height: 180px; /* keeps consistent height with image cards */
+        }
+
+        .product-img.no-image h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #3B2C95;
+        }
+
+        .product-img.no-image .product-tagline {
+            font-size: 0.95rem;
+            color: #3B2C95;
+            text-align: center;
+        }
+
+        /* Add these styles to your existing styles.css */
+        /* Flip Card Styles for Modal */
+        .modal-content {
+            background-color: #fff;
+            margin: 40px auto;
+            max-width: 56rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: modalFadeIn 0.4s;
+            height: 45rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    padding: 25px 30px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, var(--primary-blue), var(--secondary-yellow));
+    color: white;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.modal-header h2 {
+    color: var(--light-text);
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.close-modal {
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--light-text);
+    background: none;
+    border: none;
+    transition: var(--transition);
+}
+
+.close-modal:hover {
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: 30px;
+    height: calc(100% - 80px);
+    overflow-y: auto;
+}
+
+/* Flip Card Styles for Modal */
+.modal-product {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    height: 100%;
+}
+
+.flip-card-container {
+    width: 52rem;
+    height: 35rem;
+    perspective: 20rem;
+    position: relative;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+.flip-card-front {
+    background: linear-gradient(45deg, var(--primary-blue), var(--primary-yellow));
+    color: white;
+    padding: 20px;
+}
+
+.flip-card-back {
+    background: white;
+    color: var(--dark-text);
+    transform: rotateY(180deg);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.modal-product-img {
+    width: 150px;
+    height: 150px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+}
+
+.modal-product-img img {
+    width: 80%;
+    height: auto;
+    object-fit: contain;
+}
+
+.flip-card-front h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: white;
+    text-align: center;
+}
+
+.flip-card-front p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.flip-btn-container {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0 0;
+}
+
+.flip-btn {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--primary-blue);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    min-width: 140px;
+    text-align: center;
+}
+
+.flip-btn:hover {
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.flip-card-back h3 {
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.product-specs {
+    text-align: left;
+}
+
+.product-specs h4 {
+    color: var(--primary-blue);
+    margin: 15px 0 8px 0;
+    font-size: 1.1rem;
+}
+
+.product-specs p, .product-specs ul {
+    margin-bottom: 12px;
+    color: var(--dark-text);
+}
+
+.product-specs ul {
+    padding-left: 20px;
+}
+
+.product-specs li {
+    margin-bottom: 6px;
+    line-height: 1.5;
+}
+
+.modal-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Mobile Optimization */
+@media (max-width: 1024px) {
+    .modal-content {
+        max-width: 90%;
+        height: auto;
+        min-height: 40rem;
+    }
+    
+    .modal-product {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .flip-card-container {
+        height: 30em;
+        width: 39rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        max-width: 95%;
+        margin: 20px auto;
+    }
+    
+    .modal-header {
+        padding: 15px 20px;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.4rem;
+    }
+    
+    .modal-body {
+        padding: 20px;
+    }
+    
+    .flip-card-container {
+        height: 22rem;
+    }
+    
+    .modal-product-img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .flip-card-front h3 {
+        font-size: 1.5rem;
+    }
+    
+    .flip-card-front p {
+        font-size: 1rem;
+    }
+    
+    .flip-btn {
+        min-width: 120px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        width: 95%;
+        margin: 10px auto;
+    }
+    
+    .flip-card-container {
+        height: 33rem;
+        width: 20rem;
+        perspective: 15rem;
+    }
+    
+    .modal-product-img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .flip-card-front h3 {
+        font-size: 1.3rem;
+    }
+    
+    .flip-card-front p {
+        font-size: 0.9rem;
+    }
+    
+    .flip-card-back {
+        padding: 15px;
+    }
+    
+    .flip-card-back h3 {
+        font-size: 1.3rem;
+    }
+    
+    .product-specs h4 {
+        font-size: 1rem;
+    }
+    
+    .modal-controls {
+        flex-direction: column;
+    }
+    
+    .modal-controls .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .flip-btn {
+        min-width: 100px;
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Orientation-specific adjustments */
+@media (max-height: 600px) and (orientation: landscape) {
+    .modal-content {
+        height: auto;
+        max-height: 90vh;
+    }
+    
+    .flip-card-container {
+        height: 18rem;
+    }
+    
+    .modal-product-img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+    .flip-card-inner {
+        transition: transform 0.8s;
+    }
+    
+    .flip-btn {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+}
