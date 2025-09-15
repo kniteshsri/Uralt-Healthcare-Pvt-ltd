@@ -1,11 +1,11 @@
         /* Global Styles */
         :root {
-            --primary-blue: #0076a3;
-            --secondary-blue: #005a7d;
-            --primary-green: #4caf50;
-            --secondary-green: #388e3c;
+            --primary-blue: #3B2C95;
+            --secondary-blue: #3B2C95;
+            --primary-yellow: #F9B900;
+            --secondary-yellow: #F9B900;
             --light-bg: #f8f9fa;
-            --dark-text: #333;
+            --dark-text: #303030;
             --light-text: #fff;
             --gray-text: #666;
             --border-radius: 8px;
@@ -36,7 +36,7 @@
         }
 
         a:hover {
-            color: var(--secondary-blue);
+            color: var(--secondary-yellow);
         }
 
         .container {
@@ -49,7 +49,7 @@
         .btn {
             display: inline-block;
             padding: 12px 28px;
-            background-color: var(--primary-blue);
+            background-color: #3B2C95;
             color: var(--light-text);
             border: none;
             border-radius: var(--border-radius);
@@ -62,18 +62,18 @@
         }
 
         .btn:hover {
-            background-color: var(--secondary-blue);
+            background-color: var(--secondary-yellow);
             color: var(--light-text);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .btn-green {
-            background-color: var(--primary-green);
+            background-color: var(--primary-yellow);
         }
 
         .btn-green:hover {
-            background-color: var(--secondary-green);
+            background-color: var(--secondary-yellow);
         }
 
         .section-title {
@@ -87,6 +87,7 @@
             margin-bottom: 15px;
             position: relative;
             display: inline-block;
+            color: #3B2C95;
         }
 
         .section-title h2::after {
@@ -97,7 +98,7 @@
             transform: translateX(-50%);
             width: 100px;
             height: 4px;
-            background: linear-gradient(to right, var(--primary-blue), var(--primary-green));
+            background: linear-gradient(to right, var(--primary-blue), var(--primary-yellow));
             border-radius: 2px;
         }
 
@@ -141,7 +142,7 @@
 
         .logo-text h1 {
             font-size: 1.8rem;
-            color: var(--primary-blue);
+            color: #3B2C95;
             line-height: 1.2;
         }
 
@@ -202,7 +203,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 118, 163, 0.85), rgba(0, 90, 125, 0.85)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            background: linear-gradient(rgba(1, 84, 117, 0.85), rgba(37, 53, 150, 0.85)), url('../images/hero.jpg') no-repeat center center/cover;
             color: var(--light-text);
             padding: 120px 0;
             text-align: center;
@@ -243,7 +244,7 @@
             left: 0;
             right: 0;
             height: 5px;
-            background: linear-gradient(to right, var(--primary-green), var(--primary-blue));
+            background: linear-gradient(to right, var(--primary-yellow), var(--primary-blue));
         }
 
         .features-grid {
@@ -270,7 +271,7 @@
             left: 0;
             width: 5px;
             height: 100%;
-            background: linear-gradient(to bottom, var(--primary-blue), var(--primary-green));
+            background: linear-gradient(to bottom, var(--primary-blue), var(--primary-yellow));
         }
 
         .feature-card:hover {
@@ -282,7 +283,7 @@
             font-size: 3.5rem;
             color: var(--primary-blue);
             margin-bottom: 25px;
-            background: linear-gradient(to right, var(--primary-blue), var(--primary-green));
+            background: linear-gradient(to right, var(--primary-blue), var(--primary-yellow));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -316,16 +317,20 @@
         .filter-btn {
             padding: 12px 24px;
             background-color: var(--light-bg);
-            border: 2px solid var(--primary-blue);
+            border: 2px solid #3B2C95;
             border-radius: 50px;
             cursor: pointer;
             transition: var(--transition);
             font-weight: 600;
-            color: var(--primary-blue);
+            color: #3B2C95;
+        }
+
+        .filter-btn.active {
+            background-color: #3B2C95 !important;
         }
 
         .filter-btn:hover, .filter-btn.active {
-            background-color: var(--primary-blue);
+            background-color: #F9B900;
             color: var(--light-text);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0, 118, 163, 0.2);
@@ -440,7 +445,7 @@
         }
 
         .about-text h2 {
-            color: var(--primary-blue);
+            color: #3B2C95;
             margin-bottom: 25px;
             font-size: 2.2rem;
         }
@@ -484,7 +489,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(45deg, var(--primary-blue), var(--primary-green));
+            background: linear-gradient(45deg, #3B2C95, var(--primary-yellow));
         }
 
         .manager-img i {
@@ -497,13 +502,13 @@
         }
 
         .manager-info h3 {
-            color: var(--primary-blue);
+            color: #3B2C95;
             margin-bottom: 10px;
             font-size: 1.5rem;
         }
 
         .manager-info .position {
-            color: var(--primary-green);
+            color: #F9B900;
             font-weight: 600;
             margin-bottom: 15px;
             display: block;
@@ -574,7 +579,7 @@
             left: 0;
             width: 60px;
             height: 3px;
-            background: var(--primary-green);
+            background: var(--primary-yellow);
         }
 
         .contact-details {
@@ -630,7 +635,7 @@
             left: 0;
             width: 60px;
             height: 3px;
-            background: var(--primary-green);
+            background: var(--primary-yellow);
         }
 
         .form-group {
@@ -733,7 +738,7 @@
             left: 0;
             width: 50px;
             height: 2px;
-            background-color: var(--primary-green);
+            background-color: var(--primary-yellow);
         }
 
         .footer-col ul {
@@ -758,7 +763,7 @@
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid #F9B900;
             font-size: 0.9rem;
             color: #ccc;
         }
@@ -884,7 +889,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-yellow));
             color: white;
             border-radius: var(--border-radius) var(--border-radius) 0 0;
         }
@@ -972,7 +977,7 @@
 
         .product-specs ul li:before {
             content: '•';
-            color: var(--primary-green);
+            color: var(--primary-yellow);
             margin-right: 12px;
             font-size: 1.5rem;
         }
@@ -992,5 +997,49 @@
             
             .contact-container {
                 gap: 30px;
+            }
+        }
+
+        .certification-card {
+            display: flex;
+            flex-wrap: wrap; /* allows stacking on small screens */
+            align-items: flex-start;
+            gap: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .certification-text {
+            flex: 1;
+            min-width: 250px; /* ensures readability */
+        }
+
+        .certification-pdf {
+            flex: 1;
+            min-width: 350px; /* avoids shrinking too much */
+            max-width: 500px;
+        }
+
+        .certification-pdf embed {
+            width: 100%;
+            height: 550px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* Mobile optimization */
+        @media (max-width: 768px) {
+            .certification-card {
+                flex-direction: column; /* stack text above PDF */
+            }
+
+            .certification-pdf {
+                max-width: 100%;
+            }
+
+            .certification-pdf embed {
+                height: 300px; /* taller for mobile readability */
             }
         }
