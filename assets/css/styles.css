@@ -701,7 +701,7 @@
 
         .certifications-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
             gap: 30px;
         }
 
@@ -983,38 +983,38 @@
             font-size: 1.5rem;
             margin: 0;
             padding: 20px;
-            color: #f5f5f5;
+            color: var(--primary-blue);
             width: 100%;
             height: auto;
             max-height: 400px;
             object-fit: contain;
         }
         .modal-product-name.no-image.uradom-e {
-            background: #267093;
+            background: #d3d3d3;
         }
         .modal-product-name.no-image.profe {
-            background: #272727;
+            background: #d3d3d3;
         }
         .modal-product-name.no-image.uradom-p {
-            background: #253D9D;
+            background: #d3d3d3;
         }
         .modal-product-name.no-image.prebirth {
-            background: #9B288D;
+            background: #d3d3d3;
         }
         .modal-product-name.no-image.ecot-mr {
-            background: #00A9A2;
+            background: #d3d3d3;
         }
         .modal-product-name.no-image.uracal-forte {
-            background: #E92123;
+            background: #d3d3d3;
         }
         .modal-product-name.no-image.tnib-jak {
-            background: #0091CA;
+            background: #d3d3d3;
         }
         .modal-product-name.no-image.tyga-60k {
-            background: #06ABEB;
+            background: #d3d3d3;
         }
         .modal-product-name.no-image.fegato {
-            background: #DE2A1B;
+            background: #d3d3d3;
         }
 
         .modal-product-img {
@@ -1152,41 +1152,41 @@
         .product-img.no-image h3 {
             font-size: 1.5rem;
             margin-bottom: 10px;
-            color: #f5f5f5;
+            color: var(--primary-blue);
         }
 
         .product-img.no-image .product-tagline {
             font-size: 0.95rem;
-            color: #e2e2e2;
+            color: var(--primary-blue);
             text-align: center;
         }
 
         .product-img.no-image.uradom-e {
-            background: #267093;
+            background: #d3d3d3;
         }
         .product-img.no-image.profe {
-            background: #272727;
+            background: #d3d3d3;
         }
         .product-img.no-image.uradom-p {
-            background: #253D9D;
+            background: #d3d3d3;
         }
         .product-img.no-image.prebirth {
-            background: #9B288D;
+            background: #d3d3d3;
         }
         .product-img.no-image.ecot-mr {
-            background: #00A9A2;
+            background: #d3d3d3;
         }
         .product-img.no-image.uracal-forte {
-            background: #E92123;
+            background: #d3d3d3;
         }
         .product-img.no-image.tnib-jak {
-            background: #0091CA;
+            background: #d3d3d3;
         }
         .product-img.no-image.tyga-60k {
-            background: #06ABEB;
+            background: #d3d3d3;
         }
         .product-img.no-image.fegato {
-            background: #DE2A1B;
+            background: #d3d3d3;
         }
 
 
@@ -1207,6 +1207,27 @@
         }
         
         .certification-card:hover .certification-image img {
+            transform: scale(1.03);
+        }
+
+        .certification-image2 {
+            width: 80%;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            margin-left: 10%;
+
+        }
+        
+        .certification-image2 img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .certification-card:hover .certification-image2 img {
             transform: scale(1.03);
         }
 
@@ -1266,7 +1287,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(to right, var(--primary-blue), var(--secondary-yellow));
+    background: linear-gradient(45deg, #d3d3d3, #6b6b6b);
     color: white;
     border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
@@ -1334,37 +1355,37 @@
 }
 
 .flip-card-front {
-    background: linear-gradient(45deg, var(--primary-blue), var(--primary-yellow));
-    color: white;
+    background: linear-gradient(45deg, #d3d3d3, #6b6b6b);
+    color: var(--primary-blue);
     padding: 20px;
 }
 
         .flip-card-front.uradom-e {
-            background: #267093;
+            background: #d3d3d3;
         }
         .flip-card-front.profe {
-            background: #272727;
+            background: #d3d3d3;
         }
         .flip-card-front.uradom-p {
-            background: #253D9D;
+            background: #d3d3d3;
         }
         .flip-card-front.prebirth {
-            background: #9B288D;
+            background: #d3d3d3;
         }
         .flip-card-front.ecot-mr {
-            background: #00A9A2;
+            background: #d3d3d3;
         }
         .flip-card-front.uracal-forte {
-            background: #E92123;
+            background: #d3d3d3;
         }
         .flip-card-front.tnib-jak {
-            background: #0091CA;
+            background: #d3d3d3;
         }
         .flip-card-front.tyga-60k {
-            background: #06ABEB;
+            background: #d3d3d3;
         }
         .flip-card-front.fegato {
-            background: #DE2A1B;
+            background: #d3d3d3;
         }
 
 .flip-card-back {
@@ -1393,14 +1414,14 @@
 }
 
 .flip-card-front h3 {
-    font-size: 1.8rem;
+    font-size: 3.2rem;
     margin-bottom: 10px;
-    color: white;
+    color: var(--primary-blue);
     text-align: center;
 }
 
 .flip-card-front p {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     opacity: 0.9;
     text-align: center;
     margin-bottom: 15px;
@@ -1550,11 +1571,11 @@
     }
     
     .flip-card-front h3 {
-        font-size: 1.3rem;
+        font-size: 2.8rem;
     }
     
     .flip-card-front p {
-        font-size: 0.9rem;
+        font-size: 1.2rem;
     }
     
     .flip-card-back {
